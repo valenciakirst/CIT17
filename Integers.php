@@ -12,7 +12,7 @@ print "If you add 555 to 445, your sum will be $new_int <br>";
 print "<br>";
 
 if ($int_var > $another_int) {
-    print "yahoo <br>";
+    print "2003 is greather than 111 <br>";
 }
 if ($new_int < $int_var){
     print "lahlah";
