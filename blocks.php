@@ -1,5 +1,5 @@
 <?php
-
+print "BLOCKS <br><br>";
 //braces make blocks practice
 
 if (5 != 2 + 1)

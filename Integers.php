@@ -1,7 +1,7 @@
 <?php
 
 //integers
-
+print "INTEGERS <br><br>";
 $int_var = 2003;
 $another_int = 777 - 666;
 $new_int = 555 + 445;
