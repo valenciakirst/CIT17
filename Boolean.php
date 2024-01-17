@@ -2,7 +2,7 @@
 
 //Boolean
 
-print "BOOLEAN<br><br>";
+print "Lesson 4.3: BOOLEAN<br><br>";
 
 if (TRUE)
     print ("This will always print<br>");
