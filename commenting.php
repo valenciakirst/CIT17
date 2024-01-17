@@ -7,6 +7,7 @@
 //This is typed 1 by 1 
 # UwU
 # OwO
+echo "SYNTAX OVERVIEW";
 
 print "An example with single line comments";
 print "<br>";
