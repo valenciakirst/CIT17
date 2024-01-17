@@ -1,5 +1,5 @@
 <?php
-
+echo "CASE SENSITIVITIES";
 /* This is where I see the result of whitespaces in PHP.
     It is said that it is generally useless */
 
