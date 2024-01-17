@@ -2,7 +2,7 @@
 print "BLOCKS <br><br>";
 //braces make blocks practice
 
-if (5 != 2 + 1)
+if (5 != 3 + 1)
     print("Good - I definitely lost my mind. <br>");
 
 
