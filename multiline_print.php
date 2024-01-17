@@ -2,6 +2,8 @@
 
 #First Example
 
+echo "MULTILINE PRINTING"
+
 print <<<END
 This uses the "here document" ssyntax to output
 multiple lines with variable interpolation. Note
