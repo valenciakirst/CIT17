@@ -1,0 +1,49 @@
+MySQL Commands:
+mysql -u[username] -p[password]
+
+create database PHPScriptDemo;
+drop database [databasename];
+
+show databases;
+use PHPScriptDemo;
+
+CREATE TABLE Student (
+    StudID int NOT NULL,
+    FirstName varchar(255),
+    LastName varchar(255),
+    DateOfBirth DATE,
+    Email varchar(255),
+    Phone varchar(255),
+    address varchar(255),
+    PRIMARY KEY (StudID)
+);
+
+CREATE TABLE Course (
+    CourseID int NOT NULL,
+    Course varchar(255),
+    Credits int,
+    PRIMARY KEY (CourseID)
+);
+
+CREATE TABLE Instructor (
+    InstructorID int NOT NULL,
+    FirstName varchar(255),
+    LastName varchar(255),
+    Email varchar(255),
+    Phone varchar(255),
+    PRIMARY KEY (InstructorID)
+);
+CREATE TABLE Enrollment (
+    EnrollmentID INT NOT NULL,
+    StudID INT NOT NULL,
+    InstructorID INT NOT NULL,
+    CourseID INT NOT NULL,
+    EnrollmentDate DATE,
+    Grade INT,
+    PRIMARY KEY (EnrollmentID),
+    FOREIGN KEY (StudID) REFERENCES Student(StudID),
+    FOREIGN KEY (InstructorID) REFERENCES Instructor(InstructorID),
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
+
+
