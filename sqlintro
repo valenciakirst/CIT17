@@ -1,0 +1,6 @@
+insert into Student(StudentID, FirstName, LastName, DateOfBirth, Email, Phone)
+values (1, "12345N", "Neil Rosen", "Repato", "08/23/2002", "rneilrosen@gmail.com", "09951965332");
+values (2, "12346N", "Jesh", "Ballesteros", "09/24/2002", "abaloslyne@gmail.com", "099519653333");
+values (3, "12347N", "Patrick", "Star", "10/25/2002", "patstar@gmail.com", "09951965334");
+values (4, "12348N", "Lian", "Cabrito", "11/26/2002", "licab@gmail.com", "09951965335");
+values (5, "12349N", "Soti", "Rivo", "12/27/2002", "srivo@gmail.com", "09951965336");
