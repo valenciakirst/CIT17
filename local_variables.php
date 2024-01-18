@@ -10,6 +10,6 @@ function assignx () {
 }
 
 assignx();
-print "\$x outside of fuction is x";
+print "\$x outside of fuction is $x";
 
-?>
+?>it

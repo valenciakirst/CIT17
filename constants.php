@@ -8,4 +8,5 @@ echo MINSIZE;
 print "<br>";
 echo constant("MINSIZE"); //same as previous line uwu
 
+
 ?>
