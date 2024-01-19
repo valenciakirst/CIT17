@@ -13,7 +13,6 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM Course";
 $result = $conn->query($sql);
 
-// Improved error handling for database operations
 if (!$result) {
     die("Error retrieving courses: " . $conn->error);
 }
@@ -36,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["addCourse"])) {
         }
 
         header("Location: course.php");
+        exit();
     } else {
         echo "Error: Instructor with ID $newInstructorId does not exist.";
     }
@@ -142,29 +142,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateCourse"])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         echo "
-           <form method='post' action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "'>
-               <input type='hidden' name='courseId' value='" . $row["course_id"] . "'>
-               <label for='newCourseName'>New Course Name:</label>
-               <input type='text' name='newCourseName' value='" . $row["course_name"] . "' required>
-               <label for="newInstructorId">Instructor:</label>
-               <select name="newInstructorId" required>
-                   <?php
-                   // Fetch and display instructors from the instructor table
-                   $instructorQuery = "SELECT * FROM instructor";
-                   $instructorResult = $conn->query($instructorQuery);
-               
-                   if ($instructorResult->num_rows > 0) {
-                       while ($instructor = $instructorResult->fetch_assoc()) {
-                           echo "<option value='" . $instructor["instructor_id"] . "'>" . $instructor["instructor_name"] . "</option>";
-                       }
-                   }
-                   ?>
-               </select>
-               
-               <input type='text' name='newInstructorId' value='" . $row["instructor_id"] . "' required>
-               <button type='submit' name='updateCourse'>Update Course</button>
-           </form>
-       ";
+   <form method='post' action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "'>
+       <input type='hidden' name='courseId' value='" . $row["course_id"] . "'>
+       <label for='newCourseName'>New Course Name:</label>
+       <input type='text' name='newCourseName' value='" . $row["course_name"] . "' required>
+       <label for='newInstructorId'>Instructor:</label>
+       <select name='newInstructorId' required>";
+       
+       // Fetch and display instructors from the instructor table
+       $instructorQuery = "SELECT * FROM instructor";
+       $instructorResult = $conn->query($instructorQuery);
+       
+       if ($instructorResult->num_rows > 0) {
+           while ($instructor = $instructorResult->fetch_assoc()) {
+               echo "<option value='" . $instructor["instructor_id"] . "'>" . $instructor["instructor_name"] . "</option>";
+           }
+       }
+
+echo "
+       </select>
+       <button type='submit' name='updateCourse'>Update Course</button>
+   </form>
+";
     }
 }
 ?>

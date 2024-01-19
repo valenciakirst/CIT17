@@ -23,18 +23,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["addInstructor"])) {
     $insertSql = "INSERT INTO Instructor (first_name, last_name, email) VALUES ('$newFirstName', '$newLastName', '$newEmail')";
     $conn->query($insertSql);
     header("Location: instructor.php"); 
+    exit();
 }
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateInstructor"])) {
-    $instructorId = $_POST["instructorId"];
-    $newFirstName = $conn->real_escape_string($_POST["newFirstName"]);
-    $newLastName = $conn->real_escape_string($_POST["newLastName"]);
-    $newEmail = $conn->real_escape_string($_POST["newEmail"]);
+    $instructorId = isset($_POST["instructorId"]) ? $_POST["instructorId"] : '';
+    $newFirstName = isset($_POST["newFirstName"]) ? $conn->real_escape_string($_POST["newFirstName"]) : '';
+    $newLastName = isset($_POST["newLastName"]) ? $conn->real_escape_string($_POST["newLastName"]) : '';
+    $newEmail = isset($_POST["newEmail"]) ? $conn->real_escape_string($_POST["newEmail"]) : '';
 
     $updateSql = "UPDATE Instructor SET first_name='$newFirstName', last_name='$newLastName', email='$newEmail' WHERE instructor_id=$instructorId";
     $conn->query($updateSql);
     header("Location: instructor.php"); 
+    exit();
 }
 
 
@@ -44,6 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["deleteInstructor"])) {
     $deleteSql = "DELETE FROM Instructor WHERE instructor_id=$instructorId";
     $conn->query($deleteSql);
     header("Location: instructor.php");
+
+    ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 }
 
 ?>
