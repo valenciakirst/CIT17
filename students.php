@@ -16,6 +16,7 @@ $result = $conn->query($sql);
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["addStudent"])) {
+    echo "Reached addStudent block";
     $firstName = $_POST["firstName"];
     $lastName = $_POST["lastName"];
     $birthdate = $_POST["birthdate"];
@@ -62,7 +63,7 @@ $conn->close();
 </head>
 <body>
 
-<h2>Student Management</h2>
+
 
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -114,7 +115,7 @@ $conn->close();
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["updateStudent"])) {
-    $studentId = $__POST["studentId"];
+    $studentId = $_POST["studentId"];
     $sql = "SELECT * FROM Student WHERE student_id=$studentId";
     $result = $conn->query($sql);
 

@@ -1,8 +1,26 @@
-/* ... (your existing styles) */
+
+body, h2, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Segoe UI'. Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2{
+    color: #333;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
 
 .topnav {
     overflow: hidden;
     background-color: #333;
+    margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 .topnav a {
@@ -12,6 +30,8 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
 }
 
 .topnav a:hover {
@@ -23,4 +43,16 @@
     display: none;
 }
 
-/* ... (other styles) */
+.topnav a.active{
+    background-color: #555;
+    color: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.topnav a:not(.active){
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form{
+    margin: 20px;
+}
